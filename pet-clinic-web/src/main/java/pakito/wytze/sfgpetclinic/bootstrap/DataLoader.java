@@ -6,8 +6,6 @@ import pakito.wytze.sfgpetclinic.model.Owner;
 import pakito.wytze.sfgpetclinic.model.Vet;
 import pakito.wytze.sfgpetclinic.services.OwnerService;
 import pakito.wytze.sfgpetclinic.services.VetService;
-import pakito.wytze.sfgpetclinic.services.map.OwnerServiceMap;
-import pakito.wytze.sfgpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -15,9 +13,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

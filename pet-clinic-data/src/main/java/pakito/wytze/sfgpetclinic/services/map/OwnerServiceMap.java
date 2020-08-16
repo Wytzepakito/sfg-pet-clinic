@@ -1,10 +1,12 @@
 package pakito.wytze.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Owner;
 import pakito.wytze.sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
