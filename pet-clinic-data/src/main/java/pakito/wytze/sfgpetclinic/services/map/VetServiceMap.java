@@ -1,13 +1,22 @@
 package pakito.wytze.sfgpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
+import pakito.wytze.sfgpetclinic.model.Speciality;
 import pakito.wytze.sfgpetclinic.model.Vet;
+import pakito.wytze.sfgpetclinic.services.SpecialityService;
 import pakito.wytze.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    public VetServiceMap(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
+
 
     @Override
     public Set<Vet> findAll(){ return super.findAll();}
@@ -17,12 +26,21 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
         return super.findById(id);
     }
     @Override
-    public Vet save(Vet vet){
-        return super.save(vet);
+    public Vet save(Vet object){
+
+        if (object.getSpecialities().size() > 0){
+            object.getSpecialities().forEach(speciality -> {
+                if (speciality.getId() == null){
+                    Speciality savedSpeciality = specialityService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
+        return super.save(object);
     }
     @Override
-    public void delete(Vet vet){
-        super.delete(vet);
+    public void delete(Vet object){
+        super.delete(object);
     }
     @Override
     public void deleteById(Long id){

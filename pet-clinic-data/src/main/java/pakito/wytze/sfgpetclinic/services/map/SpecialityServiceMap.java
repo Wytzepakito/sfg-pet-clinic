@@ -1,11 +1,13 @@
 package pakito.wytze.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Speciality;
-import pakito.wytze.sfgpetclinic.services.SpecialitiesService;
+import pakito.wytze.sfgpetclinic.services.SpecialityService;
 
 import java.util.Set;
 
-public class SpecialitiesServiceMap extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+@Service
+public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService {
 
     @Override
     public Set<Speciality> findAll() {
