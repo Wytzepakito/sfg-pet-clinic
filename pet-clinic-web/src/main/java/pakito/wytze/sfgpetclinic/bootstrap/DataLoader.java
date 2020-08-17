@@ -3,11 +3,14 @@ package pakito.wytze.sfgpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pakito.wytze.sfgpetclinic.model.Owner;
+import pakito.wytze.sfgpetclinic.model.Pet;
 import pakito.wytze.sfgpetclinic.model.PetType;
 import pakito.wytze.sfgpetclinic.model.Vet;
 import pakito.wytze.sfgpetclinic.services.OwnerService;
 import pakito.wytze.sfgpetclinic.services.PetTypeService;
 import pakito.wytze.sfgpetclinic.services.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -36,13 +39,33 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Bickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("1231231234");
 
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now());
+        mikesPet.setName("Rosko");
+        owner1.getPets().add(mikesPet);
         ownerService.save(owner1);
+
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
+        owner2.setAddress("123 Bickerel");
+        owner2.setCity("Miami");
+        owner2.setTelephone("1231231234");
 
+
+        Pet fionasCat = new Pet();
+        fionasCat.setName("Minoes");
+        fionasCat.setOwner(owner2);
+        fionasCat.setBirthDate(LocalDate.now());
+        fionasCat.setPetType(savedCatPetType);
+        owner2.getPets().add(fionasCat);
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners......");
