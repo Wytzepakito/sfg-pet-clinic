@@ -1,10 +1,12 @@
 package pakito.wytze.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Visit;
 import pakito.wytze.sfgpetclinic.services.VisitService;
 
 import java.util.Set;
 
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
@@ -22,7 +24,7 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
 
         if(object.getPet() == null || object.getPet().getOwner() == null || object.getPet().getId() == null
                 || object.getPet().getOwner().getId() == null){
-            throw new RuntimeException("Invalid Visit")
+            throw new RuntimeException("Invalid Visit");
         }
 
         return super.save(object);

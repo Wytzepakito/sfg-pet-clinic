@@ -5,5 +5,5 @@ import pakito.wytze.sfgpetclinic.model.Owner;
 
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
-    Owner findbyLastName(String lastname);
+    Owner findByLastName(String lastname);
 }

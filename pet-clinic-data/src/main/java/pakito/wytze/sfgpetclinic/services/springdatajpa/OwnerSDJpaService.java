@@ -27,7 +27,9 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public Owner findByLastName(String lastName) {
-        return ownerRepository.findbyLastName(lastName);
+
+
+        return ownerRepository.findByLastName(lastName);
     }
 
     @Override
