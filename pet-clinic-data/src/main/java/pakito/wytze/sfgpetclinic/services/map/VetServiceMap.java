@@ -1,5 +1,6 @@
 package pakito.wytze.sfgpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Speciality;
 import pakito.wytze.sfgpetclinic.model.Vet;
@@ -9,6 +10,7 @@ import pakito.wytze.sfgpetclinic.services.VetService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;
