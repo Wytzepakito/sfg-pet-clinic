@@ -1,4 +1,4 @@
-package pakito.wytze.sfgpetclinic.model.repositories;
+package pakito.wytze.sfgpetclinic.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import pakito.wytze.sfgpetclinic.model.PetType;

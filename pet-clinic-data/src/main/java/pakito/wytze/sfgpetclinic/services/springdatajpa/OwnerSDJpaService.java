@@ -3,9 +3,9 @@ package pakito.wytze.sfgpetclinic.services.springdatajpa;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Owner;
-import pakito.wytze.sfgpetclinic.model.repositories.OwnerRepository;
-import pakito.wytze.sfgpetclinic.model.repositories.PetRepository;
-import pakito.wytze.sfgpetclinic.model.repositories.PetTypeRepository;
+import pakito.wytze.sfgpetclinic.repositories.OwnerRepository;
+import pakito.wytze.sfgpetclinic.repositories.PetRepository;
+import pakito.wytze.sfgpetclinic.repositories.PetTypeRepository;
 import pakito.wytze.sfgpetclinic.services.OwnerService;
 
 import java.util.HashSet;

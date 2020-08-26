@@ -3,7 +3,7 @@ package pakito.wytze.sfgpetclinic.services.springdatajpa;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pakito.wytze.sfgpetclinic.model.Visit;
-import pakito.wytze.sfgpetclinic.model.repositories.VisitRepository;
+import pakito.wytze.sfgpetclinic.repositories.VisitRepository;
 import pakito.wytze.sfgpetclinic.services.VisitService;
 
 import java.util.HashSet;
